@@ -6,6 +6,7 @@ import { Account } from './account';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AccountService {
   getAccounts(): Observable<Account[]> {
     const accounts: Account[] = [

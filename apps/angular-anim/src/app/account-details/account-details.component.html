@@ -1,4 +1,9 @@
 <h1>Account Details</h1>
 
-<p>Account ID</p>
+
+
 <!-- TODO: how to retrieve account id and other account details in this route? -->
+<!-- SOLUTION:  -->
+<p><b>Account ID:</b> {{ currentAccount[0].id }}</p>
+<p><b>Account Balance:</b> ${{ currentAccount[0].balance }}</p>
+<p><b>Currency:</b> {{ currentAccount[0].currency }}</p>

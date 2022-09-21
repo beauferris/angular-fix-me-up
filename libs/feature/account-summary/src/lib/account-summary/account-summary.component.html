@@ -18,7 +18,8 @@
       </tr>
       <tr *ngFor="let account of filterAccounts(accounts)">
         <!-- TODO: 8. route to detail view -->
-        <th><a>{{account.id}}</a></th>
+        <!-- SOLUTION: add routerLinks for each account with its id as a param -->
+        <th><a routerLink='/account/{{account.id}}'>{{account.id}}</a></th>
         <td>{{account.balance}}</td>
         <td>{{account.currency}}</td>
       </tr>

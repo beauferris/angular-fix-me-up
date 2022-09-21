@@ -6,6 +6,8 @@ import { AboutComponent } from './about/about.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 
 // TODO: 2. We've setup these routes and have them on the page but they aren't working
+// SOLUTION: The side-nav-component was giving the routerLink a string instead of a reference to the link 
+
 const routes: Routes = [
   { path: '', component: AccountSummaryComponent },
   { path: 'about', component: AboutComponent },
@@ -15,6 +17,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+
     RouterModule.forRoot(routes),
   ],
   declarations: [],
