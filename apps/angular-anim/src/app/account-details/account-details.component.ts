@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, } from '@angular/core';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { Account } from 'libs/shared/services/src/lib/account';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { AccountService } from 'libs/shared/services/src/lib/account.service';
-import { Observable, of } from 'rxjs';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+// import { Observable, of } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'angular-anim-account-details',
@@ -12,32 +14,21 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 
 export class AccountDetailsComponent {
-  accounts$: Observable<Account[]> = of([]);
+  
   constructor(private accountService: AccountService, private route : ActivatedRoute) {}
-  accounts: Account[] = [];
-  accountsFilter = '';
+
   currentAccount : Account[] = [];
   
-
-
-
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit(): void {
 
-    this.currentAccount = this.accounts.filter(account => account.id === 
-      "1234");
-      
-    console.log(this.accounts)
-
+    // filter accounts based on the id in the url
     this.accountService.getAccounts().subscribe((accounts) => {
-      this.accounts = accounts;
-    });
-
-    this.currentAccount = this.accounts.filter(account => account.id === 
-      this.route.snapshot.paramMap.get("id"));
-      
+      this.currentAccount = accounts.filter(account => account.id === 
+        this.route.snapshot.paramMap.get("id"));
+    });    
+  
   }
  
-  filterAccounts(accounts: Account[]) {
-    return accounts.filter(acc => acc.currency === this.accountsFilter || this.accountsFilter === '');
-  }
+ 
 }

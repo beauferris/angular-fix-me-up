@@ -1,4 +1,5 @@
 import { ComponentFixture, fakeAsync, flush, TestBed } from '@angular/core/testing';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { Account } from 'libs/shared/services/src/lib/account';
 import { AccountSummaryComponent } from './account-summary.component';
 
@@ -32,9 +33,14 @@ describe('AccountSummaryComponent', () => {
   describe("#filterAccounts", () => {
     it('should return filter accounts', () => {
       // TODO: 10. this test isn't doing anything atm, how can we make it more meaningful?
-      const accounts: Account[] = [];
+      //SOLUTION: Test if the array has been correctly filtered by selecting "cad" currency
+      
+      const accounts: Account[] = component.accounts;
+      const currency = "cad"
+      component.accountsFilter = currency;
       const filtered = component.filterAccounts(accounts);
-      expect(filtered).toBe([]);
+      expect(filtered.length).toBe(2);
+
     });
   });
 });
