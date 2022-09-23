@@ -33,7 +33,7 @@
             <a routerLink="/account/{{ account.id }}">{{ account.id }}</a>
           </th>
           <td>{{ account.balance }}</td>
-          <td>{{ account.currency }}</td>
+          <td>{{ account.currency.toUpperCase() }}</td>
         </tr>
       </tbody>
 
